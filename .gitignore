@@ -1,0 +1,13 @@
+.settings
+.project
+
+### SenchaTouch ###
+build/
+resources/sass/.sass-cache/
+
+### PhoneGap ###
+st-res
+phonegap/www/
+phonegap/platforms/android/assets/
+phonegap/platforms/android/gen/
+phonegap/platforms/android/bin/
