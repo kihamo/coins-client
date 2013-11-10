@@ -9,7 +9,7 @@ Ext.define('KihamoCollection.controller.Main', {
         control: {
             'main > toolbar > button[action=menu]': {
                 tap: function() {
-                    Ext.Viewport.toggleMenu('left');
+                	this.getApplication().onMenuButtonKeyDown();
                 }
             }
         }
