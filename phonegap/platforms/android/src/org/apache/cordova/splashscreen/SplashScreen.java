@@ -15,22 +15,29 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
- */
+*/
 
-package ru.kihamo.collection;
+package org.apache.cordova.splashscreen;
 
-import android.os.Bundle;
-import org.apache.cordova.*;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.json.JSONArray;
 
-public class KihamoCollection extends CordovaActivity 
-{
+public class SplashScreen extends CordovaPlugin {
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+        if (action.equals("hide")) {
+            this.webView.postMessage("splashscreen", "hide");
+        } else if (action.equals("show")){
+            this.webView.postMessage("splashscreen", "show");
+        }
+        else {
+            return false;
+        }
 
-        super.init();
-        super.loadUrl(Config.getStartUrl());
+        callbackContext.success();
+        return true;
     }
-}
 
+}

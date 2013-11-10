@@ -11,6 +11,9 @@
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+    </feature>
     <access origin="*" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
@@ -28,4 +31,6 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="splashscreen" value="splash" />
+    <preference name="splashScreenDelay" value="10000" />
 </widget>

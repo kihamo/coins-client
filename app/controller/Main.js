@@ -9,7 +9,7 @@ Ext.define('KihamoCollection.controller.Main', {
         control: {
             'main > toolbar > button[action=menu]': {
                 tap: function() {
-                	this.getApplication().onMenuButtonKeyDown();
+                    this.getApplication().onMenuButtonKeyDown();
                 }
             }
         }
