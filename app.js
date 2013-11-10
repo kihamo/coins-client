@@ -68,8 +68,6 @@ Ext.application({
     onDeviceReady: function() {
         // PhoneGap listeners
         if (KihamoCollection.app.isPhoneGap) {
-            Ext.device.Splashscreen.hide();
-
             document.addEventListener('menubutton', KihamoCollection.app.onMenuButtonKeyDown, false);
             document.addEventListener('backbutton', KihamoCollection.app.onBackButtonKeyDown, false);
             //document.addEventListener('offline', KihamoCollection.app.onBackOffline, false);
@@ -110,6 +108,10 @@ Ext.application({
                 }
             } 
         });
+
+        if (KihamoCollection.app.isPhoneGap) {
+            Ext.device.Splashscreen.hide();
+        }
     },
 
     onMenuButtonKeyDown: function() {
