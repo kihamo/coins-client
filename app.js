@@ -14,7 +14,11 @@ Ext.application({
     name: 'KihamoCollection',
 
     requires: [
-        'Ext.MessageBox', 'Ext.Menu'
+        'Ext.MessageBox',
+
+        'Ext.device.Device',
+        'Ext.device.Splashscreen',
+        'Ext.device.Connection'
     ],
 
     models: [
@@ -26,11 +30,11 @@ Ext.application({
     ],
 
     views: [
-
     ],
 
     controllers: [
-        'Main'
+        'Application',
+        'Auth'
     ],
 
     icon: {
@@ -52,88 +56,6 @@ Ext.application({
     },
 
     apiUrl: 'http://coins.kihamo.ru/',
-    isPhoneGap: false,
-
-    launch: function() {
-        this.isPhoneGap = Ext.browser.is.PhoneGap && !Ext.os.is.Desktop;
-
-        if (this.isPhoneGap) {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
-        }
-        else {
-            this.onDeviceReady();
-        }
-    },
-
-    onDeviceReady: function() {
-        // PhoneGap listeners
-        if (KihamoCollection.app.isPhoneGap) {
-            document.addEventListener('menubutton', KihamoCollection.app.onMenuButtonKeyDown, false);
-            document.addEventListener('backbutton', KihamoCollection.app.onBackButtonKeyDown, false);
-            //document.addEventListener('offline', KihamoCollection.app.onBackOffline, false);
-        }
-
-        Ext.Viewport.add({ xtype: 'main' });
-
-        Ext.Viewport.setMenu(Ext.create('Ext.Menu', {
-            defaults: {
-                disabled: true
-            },
-            items: [{
-                text: 'Моя коллекция',
-                iconCls: 'favorites'
-            }, {
-                text: 'Каталог',
-                iconCls: 'bookmarks'
-            }, {
-                text: 'Новые поступления',
-                iconCls: 'info',
-                badgeText: '15'
-            }, {
-                text: 'Поиск',
-                iconCls: 'search'
-            }]
-        }), {
-            side: 'left',
-            reveal: true
-        });
-
-        Ext.Viewport.element.on({
-            swipe: function (e) {
-                if (e.direction == 'right') {
-                    var menus = Ext.Viewport.getMenus();
-                    if (menus['left'] && menus['left'].isHidden()) {
-                        KihamoCollection.app.onMenuButtonKeyDown();
-                    }
-                }
-            } 
-        });
-
-        if (KihamoCollection.app.isPhoneGap) {
-            Ext.device.Splashscreen.hide();
-        }
-    },
-
-    onMenuButtonKeyDown: function() {
-        Ext.Viewport.toggleMenu('left');
-    },
-
-    onBackButtonKeyDown: function() {
-        var menus = Ext.Viewport.getMenus();
-        if (menus['left'] && !menus['left'].isHidden()) {
-            KihamoCollection.app.onMenuButtonKeyDown();
-        }
-
-        // TODO: http://rickluna.com/wp/2013/10/simple-back-buttons-in-sencha-architect-2-phonegap/
-
-        else {
-            KihamoCollection.app.doExit();
-        }
-    },
-
-    onBackOffline: function() {
-        Ext.Msg.alert('Для работы приложения необходим доступ в интернет');
-    },
 
     onUpdated: function() {
         Ext.Msg.confirm(
@@ -145,14 +67,5 @@ Ext.application({
                 }
             }
         );
-    },
-
-    doExit: function() {
-        if (navigator.app && navigator.app.exitApp) {
-            navigator.app.exitApp();
-        }
-        else if (navigator.device && navigator.device.exitApp) {
-            navigator.device.exitApp();
-        }
     }
 });

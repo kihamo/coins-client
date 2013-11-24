@@ -40,7 +40,7 @@
      */
     "js": [
 		{
-			"path": "phonegap.js",
+			"path": "cordova.js",
 			"remote": true
 		},
         {
@@ -77,6 +77,12 @@
     "css": [
         {
             "path": "resources/css/app.css",
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/cupertino.css",
+            "platform" : ["chrome","ios", "desktop"],
+            "theme" : "cupertino",
             "update": "delta"
         }
     ],

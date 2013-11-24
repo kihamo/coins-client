@@ -1,6 +1,6 @@
 Ext.define('KihamoCollection.view.Main', {
     extend: 'Ext.Panel',
-    xtype: 'main',
+    alias: 'widget.main',
 
     config: {
         items: [{
