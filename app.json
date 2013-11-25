@@ -78,12 +78,6 @@
         {
             "path": "resources/css/app.css",
             "update": "delta"
-        },
-        {
-            "path": "resources/css/cupertino.css",
-            "platform" : ["chrome","ios", "desktop"],
-            "theme" : "cupertino",
-            "update": "delta"
         }
     ],
 

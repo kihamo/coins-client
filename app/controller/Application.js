@@ -65,7 +65,7 @@ Ext.define('KihamoCollection.controller.Application', {
                 text: 'Каталог',
                 iconCls: 'bookmarks'
             }, {
-                text: 'Новые поступления',
+                text: 'Новые',
                 iconCls: 'info',
                 badgeText: '15'
             }, {
