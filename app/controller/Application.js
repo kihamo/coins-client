@@ -6,14 +6,10 @@ Ext.define('KihamoCollection.controller.Application', {
 
     config: {
         views: [
-            'Main'
+            'Catalog'
         ],
-        control: {
-            'main > toolbar > button[action=menu]': {
-                tap: function() {
-                    this.onMenuButtonKeyDown();
-                }
-            }
+        refs: {
+             viewport: 'viewport'
         }
     },
 
@@ -50,60 +46,53 @@ Ext.define('KihamoCollection.controller.Application', {
             }.bind(this), true);
         }
 
-        Ext.Viewport.add(Ext.create('KihamoCollection.view.Main'));
-
-        var menu = Ext.create('Ext.Menu', {
-             defaults: {
-                disabled: true
-            },
+        this.menu = Ext.create('Ext.Menu', {
             items: [{
                 text: 'Моя коллекция',
                 iconCls: 'favorites',
-                id: 'home',
-                disabled: false
+                id: 'home-button',
+                hidden: true
             }, {
                 text: 'Каталог',
-                iconCls: 'bookmarks'
-            }, {
-                text: 'Новые',
-                iconCls: 'info',
-                badgeText: '15'
-            }, {
-                text: 'Поиск',
-                iconCls: 'search'
+                iconCls: 'bookmarks',
+                id: 'catalog-button',
+                badgeText: '2'
             }, {
                 text: 'Войти',
                 iconCls: 'user',
-                id: 'login',
-                disabled: false
+                id: 'login-button'
             }]
         });
 
-        Ext.Viewport.setMenu(menu, {
+        this.getViewport().setDefaults({
+                              showAnimation:  {
+                                  type: 'slide',
+                                  direction: 'left'
+                              }
+                           })
+                           .element.on({
+                              swipe: function (e) {
+                                  if (e.direction == 'right' && this.menu.isHidden()) {
+                                      this.onMenuButtonKeyDown();
+                                  }
+                              },
+                              scope: this
+                           });
+        this.getViewport().setMenu(this.menu, {
             side: 'left',
             reveal: true
         });
-
-        Ext.Viewport.element.on({
-            swipe: function (e) {
-                if (e.direction == 'right' && menu.isHidden()) {
-                    this.onMenuButtonKeyDown();
-                }
-            },
-            scope: this
-        });
+        this.getViewport().add({ xtype: 'catalog' });
 
         Ext.device.Splashscreen.hide();
     },
 
     onMenuButtonKeyDown: function() {
-        Ext.Viewport.toggleMenu('left');
+        this.getViewport().toggleMenu('left');
     },
 
-    // TODO: http://rickluna.com/wp/2013/10/simple-back-buttons-in-sencha-architect-2-phonegap/
     onBackButtonKeyDown: function() {
-        var menus = Ext.Viewport.getMenus();
-        if (menus['left'] && !menus['left'].isHidden()) {
+        if (!this.menu.isHidden()) {
             this.onMenuButtonKeyDown();
         }
         else {

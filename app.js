@@ -35,7 +35,8 @@ Ext.application({
     controllers: [
         'Application',
         'History',
-        'Auth'
+        'Auth',
+        'Catalog'
     ],
 
     icon: {
@@ -57,6 +58,10 @@ Ext.application({
     },
 
     apiUrl: 'http://coins.kihamo.ru/',
+
+    viewport: {
+        fullscreen: true
+    },
 
     onUpdated: function() {
         Ext.Msg.confirm(

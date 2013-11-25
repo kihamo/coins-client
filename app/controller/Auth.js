@@ -6,27 +6,26 @@ Ext.define('KihamoCollection.controller.Auth', {
            'Login'
         ],
         refs: {
-            main: 'main',
+            viewport: 'viewport',
             loginForm: {
                 autoCreate: true,
                 selector: '#loginform',
                 xtype: 'login'
             }
         },
-        routes: {
-            'login': 'showLoginForm'
-        },
         control: {
-            "#login": {
+            '#login-button': {
                 tap: 'showLoginForm'
             }
         }
     },
+
+    sessionToken: null,
     
     showLoginForm: function() {
         var form = this.getLoginForm();
 
-        this.getMain().add(form);
-        this.getMain().setActiveItem(form);
+        this.getViewport().add(form);
+        this.getViewport().setActiveItem(form);
     }
 });

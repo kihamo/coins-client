@@ -745,10 +745,12 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "KihamoCollection.controller.Application": [],
   "KihamoCollection.controller.Auth": [],
+  "KihamoCollection.controller.Catalog": [],
+  "KihamoCollection.controller.History": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
-  "KihamoCollection.view.Login": [],
-  "KihamoCollection.view.Main": []
+  "KihamoCollection.view.Catalog": [],
+  "KihamoCollection.view.Login": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1694,12 +1696,14 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.WindowsPhone": [],
   "KihamoCollection.controller.Application": [],
   "KihamoCollection.controller.Auth": [],
+  "KihamoCollection.controller.Catalog": [],
+  "KihamoCollection.controller.History": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
+  "KihamoCollection.view.Catalog": [
+    "widget.catalog"
+  ],
   "KihamoCollection.view.Login": [
     "widget.login"
-  ],
-  "KihamoCollection.view.Main": [
-    "widget.main"
   ]
 });
