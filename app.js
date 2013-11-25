@@ -34,6 +34,7 @@ Ext.application({
 
     controllers: [
         'Application',
+        'History',
         'Auth'
     ],
 

@@ -50,9 +50,7 @@ Ext.define('KihamoCollection.controller.Application', {
             }.bind(this), true);
         }
 
-        Ext.Viewport.add([
-            { xtype: 'main' }
-        ]);
+        Ext.Viewport.add(Ext.create('KihamoCollection.view.Main'));
 
         var menu = Ext.create('Ext.Menu', {
              defaults: {
@@ -60,7 +58,9 @@ Ext.define('KihamoCollection.controller.Application', {
             },
             items: [{
                 text: 'Моя коллекция',
-                iconCls: 'favorites'
+                iconCls: 'favorites',
+                id: 'home',
+                disabled: false
             }, {
                 text: 'Каталог',
                 iconCls: 'bookmarks'
