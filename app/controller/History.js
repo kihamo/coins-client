@@ -9,7 +9,7 @@ Ext.define('KihamoCollection.controller.History', {
             'home': 'goHome'
         },
         control: {
-            "#home-button": {
+            'menu button[action=home]': {
                 tap: 'goHome'
             }
         }

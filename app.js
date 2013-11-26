@@ -15,6 +15,7 @@ Ext.application({
 
     requires: [
         'Ext.MessageBox',
+        'Ext.Menu',
 
         'Ext.device.Device',
         'Ext.device.Splashscreen',
@@ -30,6 +31,7 @@ Ext.application({
     ],
 
     views: [
+        'Login'
     ],
 
     controllers: [

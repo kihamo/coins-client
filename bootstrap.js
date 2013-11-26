@@ -749,6 +749,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "KihamoCollection.controller.History": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
+  "KihamoCollection.lib.debug.ShowEvents": [],
   "KihamoCollection.view.Catalog": [],
   "KihamoCollection.view.Login": []
 });
@@ -1700,10 +1701,11 @@ Ext.ClassManager.addNameAliasMappings({
   "KihamoCollection.controller.History": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
+  "KihamoCollection.lib.debug.ShowEvents": [],
   "KihamoCollection.view.Catalog": [
     "widget.catalog"
   ],
   "KihamoCollection.view.Login": [
-    "widget.login"
+    "widget.loginview"
   ]
 });

@@ -1,9 +1,5 @@
 Ext.define('KihamoCollection.controller.Application', {
     extend: 'Ext.app.Controller',
-    require: [
-        'Ext.Menu'
-    ],
-
     config: {
         views: [
             'Catalog'
@@ -50,17 +46,22 @@ Ext.define('KihamoCollection.controller.Application', {
             items: [{
                 text: 'Моя коллекция',
                 iconCls: 'favorites',
-                id: 'home-button',
+                action: 'home',
                 hidden: true
             }, {
                 text: 'Каталог',
                 iconCls: 'bookmarks',
-                id: 'catalog-button',
+                action: 'catalog',
                 badgeText: '2'
             }, {
                 text: 'Войти',
                 iconCls: 'user',
-                id: 'login-button'
+                action: 'login'
+            }, {
+                text: 'Выйти',
+                iconCls: 'user',
+                action: 'logout',
+                hidden: true
             }]
         });
 
