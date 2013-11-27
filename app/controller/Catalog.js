@@ -10,7 +10,7 @@ Ext.define('KihamoCollection.controller.Catalog', {
             catalogView: 'catalog'
         },
         control: {
-            '#catalog-button': {
+            'menu button[action=catalog]': {
                 tap: 'list'
             }
         }
