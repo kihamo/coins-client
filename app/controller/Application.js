@@ -81,7 +81,7 @@ Ext.define('KihamoCollection.controller.Application', {
                            });
         this.getViewport().setMenu(this.menu, {
             side: 'left',
-            reveal: true
+            reveal: false
         });
         this.getViewport().add({ xtype: 'catalog' });
 

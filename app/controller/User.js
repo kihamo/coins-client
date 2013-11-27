@@ -1,6 +1,9 @@
-Ext.define('KihamoCollection.controller.Auth', {
+Ext.define('KihamoCollection.controller.User', {
     extend: 'Ext.app.Controller',
-
+    requires: [
+        'Ext.device.Push',
+        'Ext.device.Notification'
+    ],
     config: {
         views: [
            'Login'
@@ -27,6 +30,41 @@ Ext.define('KihamoCollection.controller.Auth', {
             }
         }
     },
+    deviceToken: null,
+
+    init: function() {
+        var me = this;
+
+        Ext.device.Push.register({
+            senderID: '364344410935',
+            type: Ext.device.Push.ALERT|Ext.device.Push.BADGE|Ext.device.Push.SOUND,
+            success: function(token) {
+                console.log('# Push notification registration successful:');
+                console.log('    token: ' + token);
+            },
+            failure: function(error) {
+                console.log('# Push notification registration unsuccessful:');
+                console.log('     error: ' + error);
+            },
+            received: function(notifications) {
+                console.log('# Push notification received:');
+                console.log('    ' + JSON.stringify(notifications));
+
+                if (notifications.regid) {
+                    me.deviceToken = notifications.regid;
+                    return;
+                }
+
+                // TODO: обработка приходящих сообщений
+                if (notifications.message) {
+                    Ext.device.Notification.show({
+                        title: notifications.title,
+                        message: notifications.message
+                    });
+                }
+            }
+        });
+    },
 
     showLoginForm: function() {
         var form = this.getLoginView();
@@ -50,7 +88,7 @@ Ext.define('KihamoCollection.controller.Auth', {
         });
 
         Ext.Ajax.request({
-            url: 'http://localhost:8000/user/login',
+            url: 'http://dev.coins.kihamo.ru/user/login',
             method: 'post',
             params: {
                 username: username,
@@ -91,19 +129,20 @@ Ext.define('KihamoCollection.controller.Auth', {
     },
 
     signInSuccess: function () {
+        if (this.deviceToken) {
+            Ext.Ajax.request({
+                url: 'http://dev.coins.kihamo.ru/user/token/',
+                method: 'post',
+                params: {
+                    token: this.deviceToken,
+                    device: Ext.device.Device.name
+                }
+            });
+        }
+
         this.getLogInButton().hide();
         this.getLogOutButton().show();
         this.getLoginView().setMasked(false).destroy();
-/*
-        Ext.Ajax.request({
-            url: 'http://localhost:8000/user/token/',
-            method: 'post',
-            params: {
-                token: '333333',
-                device: '777'
-            }
-        });
-*/
     },
 
     signInFailure: function (message) {

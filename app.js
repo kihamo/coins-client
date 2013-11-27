@@ -37,7 +37,7 @@ Ext.application({
     controllers: [
         'Application',
         'History',
-        'Auth',
+        'User',
         'Catalog'
     ],
 
@@ -60,11 +60,7 @@ Ext.application({
     },
 
     apiUrl: 'http://coins.kihamo.ru/',
-/*
-    viewport: {
-        fullscreen: true
-    },
-*/
+
     onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",
