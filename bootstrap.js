@@ -747,9 +747,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "KihamoCollection.controller.Catalog": [],
   "KihamoCollection.controller.History": [],
   "KihamoCollection.controller.User": [],
+  "KihamoCollection.controller.desktop.Application": [],
+  "KihamoCollection.controller.phone.Application": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
   "KihamoCollection.lib.debug.ShowEvents": [],
+  "KihamoCollection.profile.Desktop": [],
+  "KihamoCollection.profile.Phone": [],
   "KihamoCollection.view.Catalog": [],
   "KihamoCollection.view.Login": []
 });
@@ -1699,9 +1703,13 @@ Ext.ClassManager.addNameAliasMappings({
   "KihamoCollection.controller.Catalog": [],
   "KihamoCollection.controller.History": [],
   "KihamoCollection.controller.User": [],
+  "KihamoCollection.controller.desktop.Application": [],
+  "KihamoCollection.controller.phone.Application": [],
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
   "KihamoCollection.lib.debug.ShowEvents": [],
+  "KihamoCollection.profile.Desktop": [],
+  "KihamoCollection.profile.Phone": [],
   "KihamoCollection.view.Catalog": [
     "widget.catalog"
   ],

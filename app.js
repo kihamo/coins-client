@@ -60,6 +60,7 @@ Ext.application({
     },
 
     apiUrl: 'http://coins.kihamo.ru/',
+    profiles: ['Phone', 'Desktop'],
 
     onUpdated: function() {
         Ext.Msg.confirm(

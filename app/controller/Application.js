@@ -10,38 +10,6 @@ Ext.define('KihamoCollection.controller.Application', {
     },
 
     init: function() {
-        if (Ext.browser.is.Cordova) {
-            document.addEventListener('menubutton', function() {
-                this.onMenuButtonKeyDown();
-            }.bind(this), false);
-            document.addEventListener('backbutton', function() {
-                this.onBackButtonKeyDown();
-            }.bind(this), false);
-            document.addEventListener('offline', function() {
-                this.onOffline();
-            }.bind(this), false);
-            document.addEventListener('online', function() {
-                this.onOnline();
-            }.bind(this), false);
-        }
-        else {
-            document.oncontextmenu = function() { return false; }
-            document.addEventListener('mousedown', function(e) {
-                if (e.button == 2) {
-                    this.onMenuButtonKeyDown();
-                }
-            }.bind(this), true);
-            document.addEventListener('keydown', function(e) {
-                if (e.altKey && e.ctrlKey) {
-                    switch (e.keyCode) {
-                        case 77:
-                            this.onMenuButtonKeyDown();
-                        break;
-                    }
-                }
-            }.bind(this), true);
-        }
-
         this.menu = Ext.create('Ext.Menu', {
             items: [{
                 text: 'Моя коллекция',
@@ -70,43 +38,16 @@ Ext.define('KihamoCollection.controller.Application', {
                                   type: 'slide',
                                   direction: 'left'
                               }
-                           })
-                           .element.on({
-                              swipe: function (e) {
-                                  if (e.direction == 'right' && this.menu.isHidden()) {
-                                      this.onMenuButtonKeyDown();
-                                  }
-                              },
-                              scope: this
                            });
-        this.getViewport().setMenu(this.menu, {
-            side: 'left',
-            reveal: false
-        });
         this.getViewport().add({ xtype: 'catalog' });
+    },
 
+    launch: function() {
         Ext.device.Splashscreen.hide();
     },
 
-    onMenuButtonKeyDown: function() {
-        this.getViewport().toggleMenu('left');
-    },
-
     onBackButtonKeyDown: function() {
-        if (!this.menu.isHidden()) {
-            this.onMenuButtonKeyDown();
-        }
-        else {
-            this.doExit();
-        }
-    },
-
-    onOffline: function() {
-        Ext.Msg.alert('Для работы приложения необходим доступ в интернет');
-    },
-
-    onOnline: function() {
-        Ext.Msg.alert('Добро пожаловать в интернет');
+        this.doExit();
     },
 
     doExit: function() {
