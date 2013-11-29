@@ -1,5 +1,8 @@
 Ext.define('KihamoCollection.controller.Application', {
     extend: 'Ext.app.Controller',
+    requires: [
+        'Ext.Menu'
+    ],
     config: {
         views: [
             'Catalog'
@@ -11,25 +14,36 @@ Ext.define('KihamoCollection.controller.Application', {
 
     init: function() {
         this.menu = Ext.create('Ext.Menu', {
+            defaults: {
+                width: 200
+            },
             items: [{
-                text: 'Моя коллекция',
                 iconCls: 'favorites',
                 action: 'home',
-                hidden: true
+                hidden: true,
+                locales: {
+                    text: 'buttons.collection'
+                }
             }, {
-                text: 'Каталог',
                 iconCls: 'bookmarks',
                 action: 'catalog',
-                badgeText: '2'
+                badgeText: '2',
+                locales: {
+                    text: 'buttons.catalog'
+                }
             }, {
-                text: 'Войти',
                 iconCls: 'user',
-                action: 'login'
+                action: 'login',
+                locales: {
+                    text: 'buttons.login'
+                }
             }, {
-                text: 'Выйти',
                 iconCls: 'user',
                 action: 'logout',
-                hidden: true
+                hidden: true,
+                locales: {
+                    text: 'buttons.logout'
+                }
             }]
         });
 
@@ -39,10 +53,10 @@ Ext.define('KihamoCollection.controller.Application', {
                                   direction: 'left'
                               }
                            });
-        this.getViewport().add({ xtype: 'catalog' });
     },
 
     launch: function() {
+        this.getViewport().add({ xtype: 'catalog' });
         Ext.device.Splashscreen.hide();
     },
 

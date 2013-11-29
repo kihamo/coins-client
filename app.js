@@ -10,12 +10,27 @@
     will need to resolve manually.
 */
 
+Ext.Loader.setPath('Ux', 'vendor/Ux');
+
 Ext.application({
     name: 'KihamoCollection',
 
     requires: [
+        'Ux.locale.Manager',
+        'Ux.locale.override.st.Component',
+        'Ux.locale.override.st.Button',
+        'Ux.locale.override.st.Container',
+        'Ux.locale.override.st.DataView',
+        'Ux.locale.override.st.TitleBar',
+        'Ux.locale.override.st.field.Field',
+        'Ux.locale.override.st.field.DatePicker',
+        'Ux.locale.override.st.form.FieldSet',
+        'Ux.locale.override.st.navigation.Bar',
+        'Ux.locale.override.st.navigation.View',
+        'Ux.locale.override.st.picker.Picker',
+        'Ux.locale.override.st.picker.Date',
+
         'Ext.MessageBox',
-        'Ext.Menu',
 
         'Ext.device.Device',
         'Ext.device.Splashscreen',
@@ -61,6 +76,19 @@ Ext.application({
 
     apiUrl: 'http://coins.kihamo.ru/',
     profiles: ['Phone', 'Desktop'],
+
+    launch: function() {
+        Ux.locale.Manager.setConfig({
+            language: 'ru',
+            tpl: 'resources/locales/{locale}.json',
+            type: 'ajax',
+            locales: [
+                { abbr : 'ru', text : 'Русский' }
+            ]
+        });
+
+        Ux.locale.Manager.init();
+    },
 
     onUpdated: function() {
         Ext.Msg.confirm(

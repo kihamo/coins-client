@@ -1,6 +1,5 @@
 Ext.define('KihamoCollection.view.Login', {
     extend: 'Ext.form.Panel',
-    // mixins: ['KihamoCollection.lib.debug.ShowEvents'],
     xtype: 'loginview',
     requires: [
         'Ext.form.FieldSet',
@@ -12,9 +11,11 @@ Ext.define('KihamoCollection.view.Login', {
         scrollable: false,
         items: [
             {
-                xtype: 'toolbar',
+                xtype: 'titlebar',
                 docked: 'top',
-                title: 'Авторизация'
+                locales: {
+                    title: 'navigation.auth'
+                }
             },
             {
                 xtype: 'label',
@@ -30,25 +31,31 @@ Ext.define('KihamoCollection.view.Login', {
                 items: [
                     {
                         xtype: 'textfield',
-                        placeHolder: 'логин',
                         itemId: 'userNameTextField',
                         name: 'userNameTextField',
-                        required: true
+                        required: true,
+                        locales: {
+                            placeHolder: 'fields.login'
+                        }
                     },
                     {
                         xtype: 'passwordfield',
-                        placeHolder: 'пароль',
                         itemId: 'passwordTextField',
                         name: 'passwordTextField',
-                        required: true
+                        required: true,
+                        locales: {
+                            placeHolder: 'fields.password'
+                        }
                     }
                 ]
             },
             {
                 xtype: 'button',
-                text: 'Войти',
                 ui: 'action',
-                itemId: 'logInButton'
+                itemId: 'logInButton',
+                locales: {
+                    text: 'buttons.login'
+                }
             }
         ],
         listeners: [{

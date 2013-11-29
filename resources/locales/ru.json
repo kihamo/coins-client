@@ -1,0 +1,16 @@
+{
+    "navigation": {
+        "auth": "Авторизация",
+        "catalog": "Каталог"
+    },
+    "buttons": {
+        "collection": "Коллекция",
+        "catalog": "Каталог",
+        "login": "Войти",
+        "logout": "Выйти"
+    },
+    "fields": {
+        "login": "логин",
+        "password": "пароль"
+    }
+}
