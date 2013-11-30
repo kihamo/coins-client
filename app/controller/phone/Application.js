@@ -9,8 +9,6 @@ Ext.define('KihamoCollection.controller.phone.Application', {
     },
 
     init: function() {
-        this.callParent(arguments);
-
         if (Ext.browser.is.Cordova) {
             document.addEventListener('menubutton', function() {
                 this.onMenuButtonKeyDown();
@@ -26,10 +24,6 @@ Ext.define('KihamoCollection.controller.phone.Application', {
             }.bind(this), false);
         }
 
-        this.getViewport().setMenu(this.menu, {
-            side: 'left',
-            reveal: false
-        });
         this.getViewport().element.on({
                               swipe: function (e) {
                                   if (e.direction == 'right' && this.menu.isHidden()) {
@@ -41,11 +35,12 @@ Ext.define('KihamoCollection.controller.phone.Application', {
     },
 
     onBackButtonKeyDown: function() {
-        if (!this.menu.isHidden()) {
-            this.onMenuButtonKeyDown();
-        }
-        else {
-            this.callParent(arguments);
+        var menus =  this.getViewport().getMenus(), menu;
+        if (menus['left']) {
+            menu = menus['left'];
+            if (!menu.isHidden()) {
+                this.onMenuButtonKeyDown();
+            }
         }
     },
 

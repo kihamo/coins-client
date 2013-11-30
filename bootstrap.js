@@ -757,6 +757,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "KihamoCollection.profile.Phone": [],
   "KihamoCollection.view.Catalog": [],
   "KihamoCollection.view.Login": [],
+  "KihamoCollection.view.Menu": [],
+  "KihamoCollection.view.desktop.Menu": [],
+  "KihamoCollection.view.phone.Menu": [],
   "Ux.locale.Manager": [],
   "Ux.locale.override.extjs.Button": [],
   "Ux.locale.override.extjs.Component": [],
@@ -1736,6 +1739,9 @@ Ext.ClassManager.addNameAliasMappings({
   "KihamoCollection.view.Login": [
     "widget.loginview"
   ],
+  "KihamoCollection.view.Menu": [],
+  "KihamoCollection.view.desktop.Menu": [],
+  "KihamoCollection.view.phone.Menu": [],
   "Ux.locale.Manager": [],
   "Ux.locale.override.extjs.Button": [],
   "Ux.locale.override.extjs.Component": [],
