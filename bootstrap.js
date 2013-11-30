@@ -17,7 +17,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
-  "KihamoCollection": "app"
+  "KihamoCollection": "app",
+  "Ux": "vendor/Ux"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "Ext.AbstractComponent": [],
@@ -755,7 +756,26 @@ Ext.ClassManager.addNameAlternateMappings({
   "KihamoCollection.profile.Desktop": [],
   "KihamoCollection.profile.Phone": [],
   "KihamoCollection.view.Catalog": [],
-  "KihamoCollection.view.Login": []
+  "KihamoCollection.view.Login": [],
+  "Ux.locale.Manager": [],
+  "Ux.locale.override.extjs.Button": [],
+  "Ux.locale.override.extjs.Component": [],
+  "Ux.locale.override.extjs.FieldContainer": [],
+  "Ux.locale.override.extjs.MenuItem": [],
+  "Ux.locale.override.extjs.Panel": [],
+  "Ux.locale.override.extjs.Text": [],
+  "Ux.locale.override.st.Button": [],
+  "Ux.locale.override.st.Component": [],
+  "Ux.locale.override.st.Container": [],
+  "Ux.locale.override.st.DataView": [],
+  "Ux.locale.override.st.TitleBar": [],
+  "Ux.locale.override.st.field.DatePicker": [],
+  "Ux.locale.override.st.field.Field": [],
+  "Ux.locale.override.st.form.FieldSet": [],
+  "Ux.locale.override.st.navigation.Bar": [],
+  "Ux.locale.override.st.navigation.View": [],
+  "Ux.locale.override.st.picker.Date": [],
+  "Ux.locale.override.st.picker.Picker": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1715,5 +1735,24 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "KihamoCollection.view.Login": [
     "widget.loginview"
-  ]
+  ],
+  "Ux.locale.Manager": [],
+  "Ux.locale.override.extjs.Button": [],
+  "Ux.locale.override.extjs.Component": [],
+  "Ux.locale.override.extjs.FieldContainer": [],
+  "Ux.locale.override.extjs.MenuItem": [],
+  "Ux.locale.override.extjs.Panel": [],
+  "Ux.locale.override.extjs.Text": [],
+  "Ux.locale.override.st.Button": [],
+  "Ux.locale.override.st.Component": [],
+  "Ux.locale.override.st.Container": [],
+  "Ux.locale.override.st.DataView": [],
+  "Ux.locale.override.st.TitleBar": [],
+  "Ux.locale.override.st.field.DatePicker": [],
+  "Ux.locale.override.st.field.Field": [],
+  "Ux.locale.override.st.form.FieldSet": [],
+  "Ux.locale.override.st.navigation.Bar": [],
+  "Ux.locale.override.st.navigation.View": [],
+  "Ux.locale.override.st.picker.Date": [],
+  "Ux.locale.override.st.picker.Picker": []
 });

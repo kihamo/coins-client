@@ -110,14 +110,16 @@
 		"config.xml",
         "resources/images",
         "resources/icons",
-        "resources/startup"
+        "resources/startup",
+        "resources/locales"
     ],
 
     /**
      * File / directory name matchers to ignore when copying to the builds, must be valid regular expressions
      */
     "ignore": [
-        "\.svn$"
+        "\.svn$",
+        "Ux\/locale\/override\/extjs*"
     ],
 
     /**
