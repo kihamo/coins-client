@@ -88,7 +88,7 @@ Ext.define('KihamoCollection.controller.User', {
         });
 
         Ext.Ajax.request({
-            url: 'http://dev.coins.kihamo.ru/user/login',
+            url: 'http://dev.coins.kihamo.ru/api/v1/user/login',
             method: 'post',
             params: {
                 username: username,
@@ -131,7 +131,7 @@ Ext.define('KihamoCollection.controller.User', {
     signInSuccess: function () {
         if (this.deviceToken) {
             Ext.Ajax.request({
-                url: 'http://dev.coins.kihamo.ru/user/token/',
+                url: 'http://dev.coins.kihamo.ru/api/v1/user/token/',
                 method: 'post',
                 params: {
                     token: this.deviceToken,

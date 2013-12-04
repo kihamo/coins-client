@@ -16,9 +16,6 @@ Ext.define('KihamoCollection.controller.Application', {
                                   direction: 'left'
                               }
                            });
-
-        this.getViewport().add({ xtype: 'catalog' });
-        Ext.device.Splashscreen.hide();
     },
 
     onBackButtonKeyDown: function() {

@@ -1,15 +1,3 @@
-/*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
-
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
-
 Ext.Loader.setPath('Ux', 'vendor/Ux');
 
 Ext.application({
@@ -34,15 +22,17 @@ Ext.application({
 
         'Ext.device.Device',
         'Ext.device.Splashscreen',
-        'Ext.device.Connection'
+        'Ext.device.Connection',
+
+        'KihamoCollection.lib.proxy.Rest'
     ],
 
     models: [
-
+        'Set'
     ],
 
     stores: [
-
+        'CoinsSets', 'BanknotesSets'
     ],
 
     views: [
@@ -88,6 +78,12 @@ Ext.application({
         });
 
         Ux.locale.Manager.init();
+
+        Ext.Viewport.add({
+            xtype: 'catalog'
+        });
+
+        Ext.device.Splashscreen.hide();
     },
 
     onUpdated: function() {

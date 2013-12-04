@@ -753,11 +753,18 @@ Ext.ClassManager.addNameAlternateMappings({
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
   "KihamoCollection.lib.debug.ShowEvents": [],
+  "KihamoCollection.lib.proxy.Rest": [],
+  "KihamoCollection.model.Set": [],
   "KihamoCollection.profile.Desktop": [],
   "KihamoCollection.profile.Phone": [],
+  "KihamoCollection.store.BanknotesSets": [],
+  "KihamoCollection.store.CoinsSets": [],
   "KihamoCollection.view.Catalog": [],
   "KihamoCollection.view.Login": [],
   "KihamoCollection.view.Menu": [],
+  "KihamoCollection.view.catalog.Types": [],
+  "KihamoCollection.view.catalog.banknotes.Sets": [],
+  "KihamoCollection.view.catalog.coins.Sets": [],
   "KihamoCollection.view.desktop.Menu": [],
   "KihamoCollection.view.phone.Menu": [],
   "Ux.locale.Manager": [],
@@ -1731,8 +1738,12 @@ Ext.ClassManager.addNameAliasMappings({
   "KihamoCollection.device.Cordova": [],
   "KihamoCollection.device.Simulator": [],
   "KihamoCollection.lib.debug.ShowEvents": [],
+  "KihamoCollection.lib.proxy.Rest": [],
+  "KihamoCollection.model.Set": [],
   "KihamoCollection.profile.Desktop": [],
   "KihamoCollection.profile.Phone": [],
+  "KihamoCollection.store.BanknotesSets": [],
+  "KihamoCollection.store.CoinsSets": [],
   "KihamoCollection.view.Catalog": [
     "widget.catalog"
   ],
@@ -1740,6 +1751,11 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.loginview"
   ],
   "KihamoCollection.view.Menu": [],
+  "KihamoCollection.view.catalog.Types": [
+    "widget.catalog-types"
+  ],
+  "KihamoCollection.view.catalog.banknotes.Sets": [],
+  "KihamoCollection.view.catalog.coins.Sets": [],
   "KihamoCollection.view.desktop.Menu": [],
   "KihamoCollection.view.phone.Menu": [],
   "Ux.locale.Manager": [],
